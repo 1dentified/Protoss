@@ -54,14 +54,17 @@ Start vmware workstation
 Create a virtual machine with the following minimum specs:
 
 OS|CPU|RAM|Disk|NIC
--- --- --- ---- 
-Win10x64|4|4GB|100GB 
+--|---|---|----|---
+Win10x64|4|4GB|100GB
 
 Options
 - Store virtual disk as single file
+- save as /home/vms/Win10-64-AW1
+- Install VMware Tools
 
 
 
 
 
-save in /home/vms/Win10-64-AW1
+
+
