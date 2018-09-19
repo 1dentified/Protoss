@@ -27,6 +27,13 @@ http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
 - Set Root PW
 - Update repos and system after install is complete
 
+##Instal Elasticsearch 
+*https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.tar.gz*
+>tar -xzvf "elasticsearch=6.4.1.tar.gz"
+>sudo rpm -i elasticsearch-6.4.1.rpm
+
+_assign elasticsearch an ip that can be accessable from a vritual machine on a bridged connection to dump endpoint collections into_
+
 ## Install VMware Workstation Pro 
 
 **Any virtualization software will work, but VMware Workstation is what is tested**
@@ -61,6 +68,15 @@ Options
 - Store virtual disk as single file
 - save as /home/vms/Win10-64-AW1
 - Install VMware Tools
+
+###Install Endpoint Collection Tool
+- Because most endpoints are windows, this is done on the windows box
+
+###
+
+
+
+
 
 
 
