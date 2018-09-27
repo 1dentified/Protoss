@@ -1,4 +1,4 @@
-# Analyst Workstation Build 1.0
+# Zealot Build 1.0
 
 The analyst workstation is a collections of tools used to collect and analyze data.  This workstationi can work as part of the overall Open Operations Center system or standalone.
 
