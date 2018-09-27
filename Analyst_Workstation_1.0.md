@@ -34,6 +34,7 @@ http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
 
 _assign elasticsearch an ip that can be accessable from a vritual machine on a bridged connection to dump endpoint collections into_
 
+
 ## Install VMware Workstation Pro 
 
 **Any virtualization software will work, but VMware Workstation is what is tested**
@@ -73,6 +74,38 @@ Options
 - Because most endpoints are windows, this is done on the windows box
 
 ###
+
+##Install Moloch
+
+Download Moloch project from: https://files.molo.ch/builds/centos-7/moloch-1.5.3-1.x86_64.rpm
+
+Install the RPM
+
+> sudo yum install moloch-1.5.3-1.x86_64.rpm
+
+After instalation navigate to the * /data/mooch * folder.
+
+Start the elasticsearch instance:
+
+> sudo systemctl start elasticsearch
+
+And verify the node is up and running on the vmnet 8 interface.
+
+> curl http://172.16.xx.1:9200
+
+Follow the steps in the README file to setup using the aobve address for the elasticsearch node and the physical ethernet nic as the collection interface.
+
+Modify the /data/moloch/etc/config.ini file:
+ - 
+
+After all of the steps have been followed start up the two moloch services:
+
+> sudo systemctl start molochcapture
+> sudo systemctl start molochviewer
+
+/ You can verify they started with <sudo systemctl status servicename> and then navigating to http://localhost:8005
+    
+
 
 
 
