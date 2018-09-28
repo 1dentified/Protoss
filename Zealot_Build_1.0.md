@@ -44,6 +44,11 @@ _assign elasticsearch an ip that can be accessable from a vritual machine on a b
 > sudo nano /etc/elasticsearch/elasticsearch.yml
  - change: hosted ip address -> 172.16.xx.1
  - change: data path -> /home/elastic_indicies
+ Add firewall exception.
+ 
+ > sudo firewall-cmd --permanent --add-port=9200/tcp
+ > sudo firewall-cmd --reload
+ 
 
 ## Install VMware Workstation Pro 
 
