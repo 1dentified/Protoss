@@ -27,20 +27,20 @@ http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
 - Set Root PW
 - Update repos and system after install is complete
 
-###PCAP Storage Folders
+### PCAP Storage Folders
 Make directories for the elasticsearch indicies as well as the moloch pcaps to use in later configurations.
 > sudo mkdir /home/moloch_pcaps
 > sudo mkdir /home/elastic_indicies
 
 
-##Instal Elasticsearch 
+## Instal Elasticsearch 
 *https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.tar.gz*
 >tar -xzvf "elasticsearch=6.4.1.tar.gz"
 >sudo rpm -i elasticsearch-6.4.1.rpm
 
 _assign elasticsearch an ip that can be accessable from a vritual machine on a bridged connection to dump endpoint collections into_
 
-###Elasticsearch settings
+### Elasticsearch settings
 > sudo nano /etc/elasticsearch/elasticsearch.yml
  - change: hosted ip address -> 172.16.xx.1
  - change: data path -> /home/elastic_indicies
@@ -85,12 +85,12 @@ Options
 - save as /home/vms/Win10-64-AW1
 - Install VMware Tools
 
-###Install Endpoint Collection Tool
+### Install Endpoint Collection Tool
 - Because most endpoints are windows, this is done on the windows box
 
 ###
 
-##Install Moloch
+## Install Moloch
 
 Download Moloch project from: https://files.molo.ch/builds/centos-7/moloch-1.5.3-1.x86_64.rpm
 
@@ -118,12 +118,16 @@ Modify the /data/moloch/etc/config.ini file:
  - elastic ip -> http://172.16.xx.1:9200
  
  Download the latest intel files here:
+
+ https://updates.maxmind.com/app/update_secure?edition_id=GeoLite2-ASN
+ https://updates.maxmind.com/app/update_secure?edition_id=GeoLite2-Country
+ https://raw.githubusercontent.com/wireshark/wireshark/master/manuf
  
  
  gunzip mmdb files and copy files into /data/moloch/etc folder
  
- >gunzip
- >gunzip
+ >gunzip GeoLite2-ASN.mmdb.gz .
+ >gunzip GeoLite2-ASN.mmdb.gz .
  
  * if no other files are in your download dictory----otherwise do one by one *
  >sudo mv /Downloads/* /data/moloch/etc/
