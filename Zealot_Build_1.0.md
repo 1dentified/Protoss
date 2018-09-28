@@ -51,6 +51,21 @@ _assign elasticsearch an ip that can be accessable from a vritual machine on a b
     sudo firewall-cmd --permanent --add-port=9200/tcp
     sudo firewall-cmd --reload
  
+## Install Kibana
+
+
+### Kibana Settings
+
+
+## Install Packetbeat
+### Packetbeat Settings
+    sudo nano /etc/packetbeat/packetbeat.yml
+- Change elasticsearch output [localhost:9200] -> [172.16.xx.1:9200]
+- Uncomment and set to 'True' -> xpack.monitoring.enabled: True
+
+## Install Filebeat
+
+
 
 ## Install VMware Workstation Pro 
 
