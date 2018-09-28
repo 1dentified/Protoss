@@ -106,7 +106,23 @@ And verify the node is up and running on the vmnet 8 interface.
 Follow the steps in the README file to setup using the aobve address for the elasticsearch node and the physical ethernet nic as the collection interface.
 
 Modify the /data/moloch/etc/config.ini file:
- - 
+
+> nano /data/moloch/etc/config.ini
+
+ - pcap storage -> /home/moloch_pcaps
+ - elastic ip -> http://172.16.xx.1:9200
+ 
+ Download the latest intel files here:
+ 
+ 
+ gunzip mmdb files and copy files into /data/moloch/etc folder
+ 
+ >gunzip
+ >gunzip
+ 
+ * if no other files are in your download dictory----otherwise do one by one *
+ >sudo mv /Downloads/* /data/moloch/etc/
+ 
 
 After all of the steps have been followed start up the two moloch services:
 
