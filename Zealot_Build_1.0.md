@@ -27,6 +27,12 @@ http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
 - Set Root PW
 - Update repos and system after install is complete
 
+###PCAP Storage Folders
+Make directories for the elasticsearch indicies as well as the moloch pcaps to use in later configurations.
+> sudo mkdir /home/moloch_pcaps
+> sudo mkdir /home/elastic_indicies
+
+
 ##Instal Elasticsearch 
 *https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.1.tar.gz*
 >tar -xzvf "elasticsearch=6.4.1.tar.gz"
@@ -34,6 +40,10 @@ http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
 
 _assign elasticsearch an ip that can be accessable from a vritual machine on a bridged connection to dump endpoint collections into_
 
+###Elasticsearch settings
+> sudo nano /etc/elasticsearch/elasticsearch.yml
+ - change: hosted ip address -> 172.16.xx.1
+ - change: data path -> /home/elastic_indicies
 
 ## Install VMware Workstation Pro 
 
