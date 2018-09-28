@@ -29,8 +29,10 @@ http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
 
 ### PCAP Storage Folders
 Make directories for the elasticsearch indicies as well as the moloch pcaps to use in later configurations.
-> sudo mkdir /home/moloch_pcaps
-> sudo mkdir /home/elastic_indicies
+
+    sudo mkdir /home/moloch_pcaps
+    
+    sudo mkdir /home/elastic_indicies
 
 
 ## Instal Elasticsearch 
@@ -41,13 +43,13 @@ Make directories for the elasticsearch indicies as well as the moloch pcaps to u
 _assign elasticsearch an ip that can be accessable from a vritual machine on a bridged connection to dump endpoint collections into_
 
 ### Elasticsearch settings
-> sudo nano /etc/elasticsearch/elasticsearch.yml
+    sudo nano /etc/elasticsearch/elasticsearch.yml
  - change: hosted ip address -> 172.16.xx.1
  - change: data path -> /home/elastic_indicies
  Add firewall exception.
  
- > sudo firewall-cmd --permanent --add-port=9200/tcp
- > sudo firewall-cmd --reload
+    sudo firewall-cmd --permanent --add-port=9200/tcp
+    sudo firewall-cmd --reload
  
 
 ## Install VMware Workstation Pro 
