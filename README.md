@@ -36,3 +36,7 @@ Full spread security operations interconnected and automated tools suite using o
 ### Osquery Fleet or MIG
 
 ### Ps-EDAE
+
+[The Mothership Build](../mothership/mothership.md)
+
+##
