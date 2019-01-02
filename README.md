@@ -37,6 +37,6 @@ Full spread security operations interconnected and automated tools suite using o
 
 ### Ps-EDAE
 
-[The Mothership Build](../mothership/mothership.md)
+[The Mothership Build](https://github.com/arosenmund/Protoss/blob/master/mothership/mothership.md)
 
 ##
