@@ -1,6 +1,8 @@
 # Observer
 ![build](observer-build.png)
 
+![build](Observer-Interconnections.png)
+
 Hardware Setup
 
 Server
