@@ -5,7 +5,7 @@
 
 ## Recommended Hardware Setup
   - Dell PowerEdge R610 (Current model in testing)
-  - 72GB RAM 
+  - 96GB RAM 
   - 750 GB HDD Space
     - 2x 75GB
     - 4x 150GB
@@ -49,6 +49,7 @@ On the Switch/Router
       RTR(config)#monitor session 1 source vlan [VLANs]
       RTR(config)#monitor session 1 destination interface [G#/#]
       
+      RTR(config-if)#description Observer Monitor Port
       RTR(config-if)#switchport
       RTR(config-if)#switchport mode dynamic auto
       ```
