@@ -13,11 +13,11 @@
     
 ## Server
   - Raid Setup
-    - Volume 1 (OS) Create the first volume in a RAID1 configuration using the two 75GB HDDs.
-    - Volume 2 (VMs) Create the second volume in a RAID5 configuration using the four 150GB HDDs.
+    - Volume 1 (system) Create the first volume in a RAID1 configuration using the two 75GB HDDs.
+    - Volume 2 (vms) Create the second volume in a RAID5 configuration using the four 150GB HDDs.
   - NOTE: At this point you may need to use a Windows installation disc to reformat Volume 1, since ESXi doesn't support a RAID1 configuration very well.
-  - Load ESXi 6.7.u1
-  - 
+  - Install ESXi 6.7.u1 onto Volume 1
+  
 
 ## Network Configuration
 For the rest of the instructions we will be using the following placeholders:
@@ -44,5 +44,14 @@ On the Switch/Router
       RTR(config-if)#switchport trunk allowed add vlan 20
       ```
       
-   - Configure the spans for each of the necessary VLANs
+   - Configure the spans for each of the necessary VLANs, respectfully Infrastructure, Servers, Clients, Printers/Peripherals, Phones.
+      ```
+      RTR(config)#monitor session 1 source vlan [VLANs]
+      RTR(config)#monitor session 1 destination interface [G#/#]
+      
+      RTR(config-if)#switchport
+      RTR(config-if)#switchport mode dynamic auto
+      ```
 
+## VM Configuration
+### CENTOS - Packet Capture
