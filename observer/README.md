@@ -19,8 +19,9 @@
   - Install ESXi 6.7.u1 onto Volume 1
   
 ### ESXi Management
-  - Create a new port-group and assign it to your management VLAN
-  - Create another port-group and assign it to your server VLAN
+  - vSwitch0
+    - Create a new port-group and assign it to your management VLAN
+    - Create another port-group and assign it to your server VLAN
   - Set NICs 1-5 in Passthrough Mode 
 
 ## Network Configuration
