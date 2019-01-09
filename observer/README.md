@@ -18,6 +18,10 @@
   - NOTE: At this point you may need to use a Windows installation disc to reformat Volume 1, since ESXi doesn't support a RAID1 configuration very well.
   - Install ESXi 6.7.u1 onto Volume 1
   
+### ESXi Management
+  - Create a new port-group and assign it to your management VLAN
+  - Create another port-group and assign it to your server VLAN
+  - Set NICs 1-5 in Passthrough Mode 
 
 ## Network Configuration
 For the rest of the instructions we will be using the following placeholders:
