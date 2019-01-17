@@ -9,6 +9,63 @@
     - 24x 128GB HDDs
     - 4 physical NICs (2 for redundancy)
     
+## Network Configuration
+For the network configuration, we are using a Cisco NEXUS 5000 to support 1/10GB connections, and a Cisco 2750 to support the 100MB connections. The following examples will be reflected using those configurations, and all VLAN numbers are nominal placeholders.
+
+  - On the NEXUS 5000, enable the interface vlan feature and create 4 separate VLANs (segregated from your public network's VLAN pool) using local IPs.
+      ```
+      SW(config)#feature interface-vlan
+      
+      SW(config)#interface vlan 10
+      SW(config-if)#description Management
+      SW(config-if)#ip address 10.10.10.1/24
+      
+      SW(config)#interface vlan 11
+      SW(config-if)#description Internal Servers
+      SW(config-if)#ip address 10.10.11.1/24
+      
+      SW(config)#interface vlan 12
+      SW(config-if)#description iSCSI
+      SW(config-if)#ip address 10.10.12.1/24
+      
+      SW(config)#interface vlan 13
+      SW(config-if)#description vMotion
+      SW(config-if)#ip address 10.10.13.1/24
+      ```
+
+  - Connect the two servers as seen in the following network connection diagram:
+  
+  - Configure the necessary ports.
+    - Mothership ESXi Management
+      ```
+      SW(config)#interface E#/#
+      SW(config-if)#description Mothership ESXi Management
+      SW(config-if)#switchport mode trunk
+      SW(config-if)#switchport trunk native vlan 999
+      SW(config-if)#switchport trunk allowed vlan 10
+      ```
+    - Mothership iSCSI (x2) - ensure you allow any necessary VLANs that your Observers may be a part of to the iSCSI trunks
+      ```
+      SW(config)#interface E#/#
+      SW(config-if)#description Mothership iSCSI
+      SW(config-if)#switchport mode trunk
+      SW(config-if)#switchport trunk native vlan 999
+      SW(config-if)#switchport trunk allowed vlan 10-13
+      ```
+    - EqualLogic Management (x2) - This must be configured on the 100MB capable switch unless your storage solution supports a 1GB connection
+      ```
+      SW(config)#interface Fe#/#
+      SW(config-if)#description EqualLogic Management
+      SW(config-if)#switchport mode access
+      SW(config-if)#switchport access vlan 10
+      ```
+    - EqualLogic iSCSI (x2) 
+      ```
+      SW(config)#interface E#/#
+      SW(config-if)#description EqualLogic iSCSI
+      SW(config-if)#switchport access vlan 12
+      ```
+
 ## ESXi Server
   - Raid Setup
     - Volume 1 (system) Create the first volume in a RAID1 configuration using the two 128GB HDDs.
@@ -20,5 +77,5 @@
 
 ## EqualLogic Server (Storage)
 
-## Network Configuration
+
 
