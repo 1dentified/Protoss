@@ -96,15 +96,14 @@ Create a new VM with the following configuration:
 
 ### Install CENTOS7
 Manual Partitioning:
-  - /boot (Standard Partition)
-    - 1024MB, xfs  
-  - swap (LVM)
-    - 10GB, swap, "system" volume group
-  - /var (LVM)
-    - 500GB, xfs, "database" volume group
-  - /
-    - ~19GB, xfs, "system" volume group
-  
+
+Mount Point | Partition Type | Size | Format | Volume Group
+------------|----------------|------|--------|-------------
+/boot | Standard | 1024 MB | xfs | -
+swap | LVM | 10 GB | swap | "system"
+/var | LVM | 500 GB | xfs | "database"
+/ | LVM | ~19 GB | xfs | "system"
+
   - Notes:
     - As you choose each of the LVMs, you will have the option to create a new volume group - "system" for the 30GB HD and "database" for the 500GB HD
     - The root partition can take up the rest of the space on the 30GB HD, and if you attempt to create this one before creating both volume groups, the setup will not let you create another LVM, so create them in the order listed
