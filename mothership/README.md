@@ -76,6 +76,35 @@ For the network configuration, we are using a Cisco NEXUS 5000 to support 1/10GB
 
 
 ## EqualLogic Server (Storage)
+  - Configure the EqualLogic drives into RAID 5+0, this should leave you with around 4.7TB of usable space (if using the 128GB HDDs)
+  - Configure Volumes:
+    - 2.0TB - ARCHIVE (~45%)
+    - 1.5TB - DATABASE (~33%)
+    - 1.0TB - VMs (~22%)
 
+## Elastic Cluster
+The baseline build with be 3x CENTOS7 servers running elasticsearch with database storage on the EqualLogic.
 
+### Create the Elastic VM
+Create a new VM with the following configuration:
+  - vCPUs: 2
+  - RAM: 64GB
+  - HDDs: 2
+    - 30GB in the VMs volume (IDE slot 0)
+    - 500GB in the DATABASE volume (IDE slot 1)
+  - Network Adapter: management port-group
 
+### Install CENTOS7
+Manual Partitioning:
+  - /boot (Standard Partition)
+    - 1024MB, xfs  
+  - swap (LVM)
+    - 10GB, swap, "system" volume group
+  - /var (LVM)
+    - 500GB, xfs, "database" volume group
+  - /
+    - ~19GB, xfs, "system" volume group
+  
+  - Notes:
+    - As you choose each of the LVMs, you will have the option to create a new volume group - "system" for the 30GB HD and "database" for the 500GB HD
+    - The root partition can take up the rest of the space on the 30GB HD, and if you attempt to create this one before creating both volume groups, the setup will not let you create another LVM, so create them in the order listed
