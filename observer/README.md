@@ -11,6 +11,8 @@
     - 4x 150GB
   - 7 physical NICs (depending on what segregated traffic will be monitored)
     
+[ONLY 2 LOCAL SPAN SESSIONS - NEEDS TO BE UPDATED!]    
+  
 ## Server
   - Raid Setup
     - Volume 1 (system) Create the first volume in a RAID1 configuration using the two 75GB HDDs.
