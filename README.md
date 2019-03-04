@@ -3,7 +3,7 @@ Full spread security operations interconnected and automated tools suite using o
 
 ## The Mothership
 
-[The Mothership Build](https://github.com/arosenmund/Protoss/blob/master/mothership/mothership.md)
+[The Mothership Build](https://github.com/arosenmund/Protoss/blob/master/mothership/README.md)
 
 ## The Observer
 [The Observer Build](https://github.com/arosenmund/Protoss/blob/master/observer/README.md)
