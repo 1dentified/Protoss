@@ -6,7 +6,7 @@ Full spread security operations interconnected and automated tools suite using o
 [The Mothership Build](https://github.com/arosenmund/Protoss/blob/master/mothership/mothership.md)
 
 ## The Observer
-[The Observer Build](https://github.com/arosenmund/Protoss/blob/master/observer/observer.md)
+[The Observer Build](https://github.com/arosenmund/Protoss/blob/master/observer/README.md)
 
 
 ## The Zealot
