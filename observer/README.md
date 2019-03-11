@@ -62,4 +62,47 @@ On the Switch/Router
       ```
 
 ## VM Configuration
-### CENTOS - Packet Capture
+### CENTOS - Packet Capture & Network Analysis
+
+CENTOS 07 - specs
+- CPU: 16 core
+- RAM: 32-64 GB
+- HD: 100GB
+  - / 80gb, /home 15gb, 
+
+From base load you need to run the following:
+    ```
+    sudo yum update
+    sudo yum upgrade
+    sudo yum install java
+    #modify firewall for moloch and shipping to elasticsearch
+    firewall-cmd --permanent --add-port 8005/tcp #moloch
+    firewall-cmd --permanent --add-port 9200/tcp #elastic
+    firewall-cmd --reload
+    ```
+Then install moloch package for centos 7 from this location
+    ```
+    https://molo.ch/#downloads
+    yum localinstall moloch-1.X.X-1.x86_64.rpm
+    ```
+After instalation the /data file will house the moloch files at root. 
+    ```
+    cd /data/moloch
+    cat README
+    ```
+Follow instructions on read me with the following details:
+  - using an external elasticsearch instance and provide one of the nodes for ingesting of data
+  - provide passthru nic's for monitoring interface
+  - allow for the download of the database files for ip and geoip.  If you are doing an offline install skip this step but be sure to      download these files and then unpack in the /data/moloch/bin folder before starting the capture service
+  - follow instructions for new build if this is the first observer on this node, otherwise use update instructions
+  
+Once setup is complete:
+    ```
+    sudo systemctl enable molochcapture
+    sudo systemctl start molochcapture
+    sudo systemctl start molochviewer
+    ```
+Verify both services started and login to molochviewer at http://xxx.xxx.xxx.xxx:8005  using the admin un/pw just created.
+
+
+
