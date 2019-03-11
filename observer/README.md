@@ -75,11 +75,17 @@ From base load you need to run the following:
     sudo yum update
     sudo yum upgrade
     sudo yum install java
+    sudo yum install nfsutils
     #modify firewall for moloch and shipping to elasticsearch
     firewall-cmd --permanent --add-port 8005/tcp #moloch
     firewall-cmd --permanent --add-port 9200/tcp #elastic
     firewall-cmd --reload
     ```
+If you have an NFS archive setup on the mothersip then follow these instructions to mount.
+  First on the services VM that is hosting the NFS share do the following to add the nfs client:
+  ```
+  
+  ```
 Then install moloch package for centos 7 from this location
     ```
     https://molo.ch/#downloads
