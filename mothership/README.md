@@ -107,3 +107,27 @@ swap | LVM | 10 GB | swap | "system"
   - Notes:
     - As you choose each of the LVMs, you will have the option to create a new volume group - "system" for the 30GB HD and "database" for the 500GB HD
     - The root partition can take up the rest of the space on the 30GB HD, and if you attempt to create this one before creating both volume groups, the setup will not let you create another LVM, so create them in the order listed
+    
+    
+### Viewer01 - Hosts Web Pages that view elastic node data.
+This vm will offload the molochviewer from the capture nodes as well as provide a landing point for the main kibana interface.
+
+##CentosBuild
+Intall Kibana from rpm
+Configure /etc/kibana/kibana.yml for elastic address and for external ip access
+Install Moloch from rpm
+Configure moloch for elastic node  ##remember to split according to load do not use the same one as the ingest
+    ```
+    firewall-cmd --permanent --add-port 8005/tcp
+    firewall-cmd --permanent --add-port 5601/tcp
+    firewall-cmd --reload
+    mkdir datastore
+    nano /etc/fstab
+      ipofservices01:/datastore /datastore     nfs   defaults    0  0
+    mount -a
+    ```
+ viewer01 is complete
+
+
+
+
