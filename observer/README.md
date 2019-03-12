@@ -110,5 +110,18 @@ Once setup is complete:
     ```
 Verify both services started and login to molochviewer at http://xxx.xxx.xxx.xxx:8005  using the admin un/pw just created.
 
+###Setup Metric Beats
+Download 6.5.X metric beats from elastic websit.
+```
+yum localinstall "metricbeats-xxx-xxx.rpm"
+nano /etc/metricbeat/metricbeat.yml
+    ***add kibana and elastic node ip address information***
+nano /etc/metricbeat/modules.d/systemyml
+    ***uncomment -diskio under metric set***
+metricbeat setup -e  ##monitor for failure and resolve
+systemctl start metricbeat  ###if there is no failure and you see the data in kibana proceed
+systemctl enable metricbeat
+```
+
 
 
