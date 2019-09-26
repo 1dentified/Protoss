@@ -1,0 +1,25 @@
+# Asset Discovery
+
+## Existing Documentation Collection
+
+- [] Collect existing network diagrams.
+
+## 
+
+### Network Scanning
+### Endpoint Scanning
+
+### Endpoint Information
+
+***
+
+### DHCP
+### DNS
+### Active Directory 
+
+get-aduser -scope -searchbase 
+
+get-adcomputer
+
+get-adgroupmembers
+
